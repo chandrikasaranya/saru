@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21K61A0646</title>
+
+<style>
+#myProgress {
+  width: 100%;
+  background-color: lavender;
+}
+
+#myBar {
+  width: 10%;
+  height: 30px;
+  background-color: darkmagenta;
+  text-align: center;
+  line-height: 30px;
+  color: whitesmoke;
+}
+#button {
+  background-color:red; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#button1 { 
+  background-color: green; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px
+}
+
+</style>
+<body>
+
+<h1>Progress Bar</h1>
+
+<div id="myProgress">
+  <div id="myBar">10%</div>
+</div>
+
+<br>
+<p id="myP">Added <span id="demo">0</span> of 10 photos</p>
+
+<div id="button">
+<button onclick=location.reload()>Reload</button>
+</div>
+<div id="button1">
+<button onclick="move()">upload</button>
+</div>
+<script>
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 10;
+    var id = setInterval(frame, 10);
+    
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        document.getElementById("myP").className = "w3-text-green w3-animate-opacity";
+      document.getElementById("myP").innerHTML = "Successfully uploaded 10 photos!";
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+        elem.innerHTML = width  + "%";
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
